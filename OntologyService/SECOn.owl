@@ -1,0 +1,539 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://anonymous.anonymous.anonymous/SECOn.owl#"
+     xml:base="https://anonymous.anonymous.anonymous/SECOn.owl"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:main="http://se-on.org/ontologies/general/2012/02/main.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:sioc="http://rdfs.org/sioc/ns#"
+     xmlns:main1="http://se-on.org/ontologies/general/2012/2/main.owl#"
+     xmlns:secon="https://anonymous.anonymous.anonymous/SECOn.owl#"
+     xmlns:history="http://se-on.org/ontologies/domain-specific/2012/02/history.owl">
+    <owl:Ontology rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl">
+        <owl:versionIRI rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl"/>
+        <owl:imports rdf:resource="http://rdfs.org/sioc/ns#"/>
+        <owl:imports rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/history.owl"/>
+        <owl:imports rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/issues.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rdfs.org/sioc/ns#follows -->
+
+    <rdf:Description rdf:about="http://rdfs.org/sioc/ns#follows">
+        <owl:equivalentProperty rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#follows"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#collaboresWith -->
+
+    <owl:ObjectProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#collaboresWith">
+        <rdfs:domain rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Entity"/>
+        <rdfs:range rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Entity"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#develops"/>
+            <rdf:Description rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#isDevelopedBy"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#complements -->
+
+    <owl:ObjectProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#complements">
+        <owl:inverseOf rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#dependsOn"/>
+        <rdfs:domain rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Component"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl#Product"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#composes -->
+
+    <owl:ObjectProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#composes">
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#Artifact"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl#Product"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#dependsOn -->
+
+    <owl:ObjectProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#dependsOn">
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#dependsOn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#develops -->
+
+    <owl:ObjectProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#develops">
+        <owl:inverseOf rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#isDevelopedBy"/>
+        <rdfs:domain rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Entity"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl#Product"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#follows -->
+
+    <owl:ObjectProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#follows">
+        <rdfs:subPropertyOf rdf:resource="http://rdfs.org/sioc/ns#follows"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#hasMessage -->
+
+    <owl:ObjectProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#hasMessage">
+        <rdfs:domain rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Commit"/>
+        <rdfs:range rdf:resource="http://rdfs.org/sioc/ns#Post"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#hasSocialNetwork -->
+
+    <owl:ObjectProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#hasSocialNetwork">
+        <rdfs:domain rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#SoftwareEcosystem"/>
+        <rdfs:range rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#SocialNetwork"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#hasUsed -->
+
+    <owl:ObjectProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#hasUsed">
+        <rdfs:domain rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Entity"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl#Product"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#hosts -->
+
+    <owl:ObjectProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#hosts">
+        <rdfs:domain rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Repository"/>
+        <rdfs:range rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl#Product"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#isAcquaintedWith -->
+
+    <owl:ObjectProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#isAcquaintedWith">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#develops"/>
+            <rdf:Description rdf:about="http://se-on.org/ontologies/general/2012/2/main.owl#dependsOn"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#develops"/>
+            <rdf:Description rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#requiresKnowledge"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#isCommitedTo -->
+
+    <owl:ObjectProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#isCommitedTo">
+        <rdfs:domain rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Commit"/>
+        <rdfs:range rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Repository"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#isDevelopedBy -->
+
+    <owl:ObjectProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#isDevelopedBy"/>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#isPartOfConsortium -->
+
+    <owl:ObjectProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#isPartOfConsortium">
+        <rdfs:domain rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Company"/>
+        <rdfs:range rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Consortium"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#isPartOfEcosystem -->
+
+    <owl:ObjectProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#isPartOfEcosystem">
+        <rdfs:range rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#SoftwareEcosystem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#isPartOfSocialNetwork -->
+
+    <owl:ObjectProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#isPartOfSocialNetwork">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#Entity"/>
+                    <rdf:Description rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#Software"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#SocialNetwork"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#isPartOfEcosystem"/>
+            <rdf:Description rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#hasSocialNetwork"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#isRequiredBy -->
+
+    <owl:ObjectProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#isRequiredBy">
+        <owl:inverseOf rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#requiresKnowledge"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#mayCollaborateWith -->
+
+    <owl:ObjectProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#mayCollaborateWith">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#isAcquaintedWith"/>
+            <rdf:Description rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#isRequiredBy"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#owns -->
+
+    <owl:ObjectProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#owns">
+        <rdfs:domain rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Entity"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://se-on.org/ontologies/general/2012/02/main.owl#Product"/>
+                    <rdf:Description rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#Repository"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#requiresKnowledge -->
+
+    <owl:ObjectProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#requiresKnowledge">
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl#Product"/>
+        <rdfs:range rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Topic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#worksIn -->
+
+    <owl:ObjectProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#worksIn">
+        <rdfs:domain rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Individual"/>
+        <rdfs:range rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Institution"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rdfs.org/sioc/ns#id -->
+
+    <rdf:Description rdf:about="http://rdfs.org/sioc/ns#id">
+        <owl:equivalentProperty rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#hasId"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/02/main.owl#hasDescription -->
+
+    <rdf:Description rdf:about="http://se-on.org/ontologies/general/2012/02/main.owl#hasDescription">
+        <owl:equivalentProperty rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#hasDescription"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/02/main.owl#hasEmail -->
+
+    <rdf:Description rdf:about="http://se-on.org/ontologies/general/2012/02/main.owl#hasEmail">
+        <rdfs:domain rdf:resource="http://se-on.org/ontologies/general/2012/2/main.owl#Stakeholder"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/02/main.owl#hasIdentifier -->
+
+    <rdf:Description rdf:about="http://se-on.org/ontologies/general/2012/02/main.owl#hasIdentifier">
+        <rdfs:subPropertyOf rdf:resource="http://rdfs.org/sioc/ns#id"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/02/main.owl#hasName -->
+
+    <rdf:Description rdf:about="http://se-on.org/ontologies/general/2012/02/main.owl#hasName">
+        <rdfs:subPropertyOf rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#hasName"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#hasCity -->
+
+    <owl:DatatypeProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#hasCity">
+        <rdfs:subPropertyOf rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#hasLocation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#hasCountry -->
+
+    <owl:DatatypeProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#hasCountry">
+        <rdfs:subPropertyOf rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#hasLocation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#hasDescription -->
+
+    <owl:DatatypeProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#hasDescription">
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl#hasDescription"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#hasEmail -->
+
+    <owl:DatatypeProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#hasEmail">
+        <rdfs:subPropertyOf rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl#hasEmail"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#hasId -->
+
+    <owl:DatatypeProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#hasId">
+        <rdfs:subPropertyOf rdf:resource="http://rdfs.org/sioc/ns#id"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#hasLocation -->
+
+    <owl:DatatypeProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#hasLocation">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#hasLogin -->
+
+    <owl:DatatypeProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#hasLogin"/>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#hasName -->
+
+    <owl:DatatypeProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#hasName"/>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#hasURL -->
+
+    <owl:DatatypeProperty rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#hasURL">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rdfs.org/sioc/ns#UserAccount -->
+
+    <rdf:Description rdf:about="http://rdfs.org/sioc/ns#UserAccount">
+        <owl:equivalentClass rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Individual"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/02/main.owl#Developer -->
+
+    <rdf:Description rdf:about="http://se-on.org/ontologies/general/2012/02/main.owl#Developer">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#Individual"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#develops"/>
+                        <owl:someValuesFrom rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Software"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/02/main.owl#Product -->
+
+    <rdf:Description rdf:about="http://se-on.org/ontologies/general/2012/02/main.owl#Product">
+        <rdfs:subClassOf rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Entity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/OnlineAccount -->
+
+    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/OnlineAccount">
+        <owl:equivalentClass rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Entity"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#Commit -->
+
+    <owl:Class rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#Commit"/>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#Company -->
+
+    <owl:Class rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#Company">
+        <rdfs:subClassOf rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Institution"/>
+        <owl:disjointWith rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#FOSSFoundation"/>
+    </owl:Class>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#Component -->
+
+    <owl:Class rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#Component">
+        <rdfs:subClassOf rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Software"/>
+    </owl:Class>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#Consortium -->
+
+    <owl:Class rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#Consortium">
+        <rdfs:subClassOf rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Institution"/>
+    </owl:Class>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#Entity -->
+
+    <owl:Class rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#Entity"/>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#FOSSFoundation -->
+
+    <owl:Class rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#FOSSFoundation">
+        <rdfs:subClassOf rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Institution"/>
+    </owl:Class>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#Individual -->
+
+    <owl:Class rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#Individual">
+        <rdfs:subClassOf rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#Institution -->
+
+    <owl:Class rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#Institution">
+        <rdfs:subClassOf rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#Platform -->
+
+    <owl:Class rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#Platform">
+        <rdfs:subClassOf rdf:resource="https://anonymous.anonymous.anonymous/SECOn.owl#Software"/>
+    </owl:Class>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#Repository -->
+
+    <owl:Class rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#Repository"/>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#Skillset -->
+
+    <owl:Class rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#Skillset"/>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#SocialNetwork -->
+
+    <owl:Class rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#SocialNetwork"/>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#Software -->
+
+    <owl:Class rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#Software">
+        <rdfs:subClassOf rdf:resource="http://se-on.org/ontologies/general/2012/02/main.owl#Product"/>
+    </owl:Class>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#SoftwareEcosystem -->
+
+    <owl:Class rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#SoftwareEcosystem"/>
+    
+
+
+    <!-- https://anonymous.anonymous.anonymous/SECOn.owl#Topic -->
+
+    <owl:Class rdf:about="https://anonymous.anonymous.anonymous/SECOn.owl#Topic"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
