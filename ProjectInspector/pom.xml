@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>collabrs</groupId>
+    <artifactId>ProjectInspector</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+        <target.jvm>1.6</target.jvm>
+        <antlr.version>4.7.1</antlr.version>
+        <antlr4test-maven-plugin.version>1.10</antlr4test-maven-plugin.version>
+        <antlr4.visitor>true</antlr4.visitor>
+        <antlr4.listener>true</antlr4.listener>
+    </properties>
+    
+    <dependencies>
+        
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4-runtime</artifactId>
+            <version>${antlr.version}</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4</artifactId>
+            <version>${antlr.version}</version>
+            <classifier>complete</classifier>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.eclipse.jgit/org.eclipse.jgit -->
+        <dependency>
+            <groupId>org.eclipse.jgit</groupId>
+            <artifactId>org.eclipse.jgit</artifactId>
+            <version>5.2.1.201812262042-r</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20170516</version>
+        </dependency>
+
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.0</version>
+                <configuration>
+                    <source>${target.jvm}</source>
+                    <target>${target.jvm}</target>
+                </configuration>
+            </plugin>
+            
+            <!-- Java-->
+            <plugin>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr4-maven-plugin</artifactId>
+                <version>${antlr.version}</version>
+                <configuration>
+                    <sourceDirectory>${basedir}/src/main/java/br/ufjf/merge/projectscan/grammars/antlr</sourceDirectory>
+                    <outputDirectory> ${basedir}/src/main/java/br/ufjf/merge/projectscan/grammars/antlr/code</outputDirectory>
+                    <arguments>
+                        <argument>-package</argument>
+                        <argument>br.ufjf.merge.projectscan.grammars.antlr.code</argument>
+                    </arguments>
+                    <includes>
+                        <include>JavaLexer.g4</include>
+                        <include>JavaParser.g4</include>
+                        
+                        <include>JavaScriptLexer.g4</include>
+                        <include>JavaScriptParser.g4</include>
+                    </includes>
+                </configuration>
+                    
+                
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>antlr4</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            <!--Java Script -->
+            <!--            <plugin>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr4-maven-plugin</artifactId>
+                <version>${antlr.version}</version>
+                <configuration>
+                    <sourceDirectory>${basedir}/src/main/java/br/ufjf/merge/projectscan/grammars/javascript</sourceDirectory>
+                    <outputDirectory> ${basedir}/src/main/java/br/ufjf/merge/projectscan/grammars/javascript</outputDirectory>
+                    <arguments>
+                        <argument>-package</argument>
+                        <argument>br.ufjf.merge.projectscan.grammars.javascript</argument>
+                    </arguments>
+                    <includes>
+                        <include>JavaScriptLexer.g4</include>
+                        <include>JavaScriptParser.g4</include>
+                    </includes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>antlr4</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>-->
+            <!-- END -->
+            
+            <plugin>
+                <groupId>com.khubla.antlr</groupId>
+                <artifactId>antlr4test-maven-plugin</artifactId>
+                <version>${antlr4test-maven-plugin.version}</version>
+                <configuration>
+                    <verbose>false</verbose>
+                    <showTree>false</showTree>
+                    <entryPoint>compilationUnit</entryPoint>
+                    <grammarName>Java</grammarName>
+                    <packageName>br.ufjf.merge.projectscan.grammars.java</packageName>
+                    <exampleFiles>examples/</exampleFiles>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            
+        </plugins>
+    </build>
+</project>
